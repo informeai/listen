@@ -19,11 +19,7 @@ func main() {
 	var port string
 	flag.StringVar(&file, "file", "", "file for expose")
 	flag.StringVar(&port, "p", "", "port for listen")
-
 	flag.Parse()
-
-	fmt.Printf("file: %s\n", file)
-	fmt.Printf("port: %s\n", port)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		slcBytes, err := ioutil.ReadFile(file)
 		if err != nil {
